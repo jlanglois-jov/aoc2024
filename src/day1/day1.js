@@ -19,17 +19,17 @@ lists[0].forEach((item, index) => {
 
 console.log(`(Part 1) Total Distance: ${totalDistance}`);
 
-let similarity = 0;
+let totalSimilarity = 0;
 
 lists[0].forEach((item) => {
   const occurances = lists[1].filter((item2) => item2 === item)?.length;
-  const sim = item * occurances;
-  similarity += sim;
+  const similarity = item * occurances;
+  totalSimilarity += similarity;
 
-  if (sim > 0)
+  if (similarity > 0)
     console.log(
-      `List[0] item: ${item}, Occurances: ${occurances}, Similarity: ${sim}`
+      `List[0] item: ${item}, Occurances: ${occurances}, Similarity: ${similarity}`
     );
 });
 
-console.log(`(Part 2) Total Similarity Score: ${similarity}`);
+console.log(`(Part 2) Total Similarity Score: ${totalSimilarity}`);
