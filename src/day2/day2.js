@@ -1,13 +1,12 @@
-import { splitInputIntoLines } from "../main.js";
+import { getInputInLines } from "../main.js";
 
 function getNumberOfSafeReports() {
-  const reports = splitInputIntoLines(2, 1, false);
+  const reports = getInputInLines(2, 1, false);
   let nbrOfSafeReports = 0;
 
   reports.forEach((report) => {
     if (isReportSafe(report)) {
       nbrOfSafeReports++;
-      // }
     } else if (isSafeAfterProblemDampener(report)) {
       nbrOfSafeReports++;
     }

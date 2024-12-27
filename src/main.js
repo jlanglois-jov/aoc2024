@@ -6,7 +6,15 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
 
-function splitInputIntoLines(dayNumber, puzzleNumber, testCase = false) {
+function getInputInLines(dayNumber, puzzleNumber, testCase = false) {
+  const input = getInput(dayNumber, puzzleNumber, testCase);
+  // split lines
+  const inputLines = input.toString().split(/\r?\n|\r|\n/g);
+
+  return inputLines;
+}
+
+function getInput(dayNumber, puzzleNumber, testCase = false) {
   const dirPath = path.join(__dirname, `day${dayNumber}`);
   const inputFile = testCase
     ? fs
@@ -23,10 +31,8 @@ function splitInputIntoLines(dayNumber, puzzleNumber, testCase = false) {
         )[0];
   const inputPath = path.join(dirPath, inputFile);
   const input = fs.readFileSync(inputPath);
-  // split lines
-  const inputLines = input.toString().split(/\r?\n|\r|\n/g);
 
-  return inputLines;
+  return input.toString();
 }
 
-export { splitInputIntoLines };
+export { getInputInLines, getInput };

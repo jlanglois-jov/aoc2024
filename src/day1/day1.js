@@ -1,6 +1,6 @@
-const { splitInputIntoLines } = require("../main.js");
+import { getInputInLines } from "../main.js";
 
-const inputLines = splitInputIntoLines(1, 1);
+const inputLines = getInputInLines(1, 1);
 const lists = [[], []];
 let totalDistance = 0;
 
