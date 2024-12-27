@@ -1,6 +1,10 @@
 // load doc
-const fs = require("node:fs");
-const path = require("node:path");
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename); // get the name of the directory
 
 function splitInputIntoLines(dayNumber, puzzleNumber, testCase = false) {
   const dirPath = path.join(__dirname, `day${dayNumber}`);
@@ -25,4 +29,4 @@ function splitInputIntoLines(dayNumber, puzzleNumber, testCase = false) {
   return inputLines;
 }
 
-module.exports = { splitInputIntoLines };
+export { splitInputIntoLines };
